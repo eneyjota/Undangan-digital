@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <title>Dadan & Minah</title>
@@ -12,13 +13,38 @@
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(#fff,#f5f1e8);
+  background:linear-gradient(#ffffff,#f5f1e8);
   text-align:center;
+  color:#333;
 }
 
-h1,h2{font-family:'Playfair Display',serif;}
-.gold{color:#c9a85d;}
+h1,h2,h3{
+  font-family:'Playfair Display',serif;
+}
 
+.gold{
+  color:#c9a85d;
+}
+
+/* COVER /
+.cover{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  animation:fadeIn 1.5s ease;
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  background:#c9a85d;
+  color:white;
+  border-radius:25px;
+  margin-top:20px;
+}
+
+/ SECTION /
 .section{
   padding:60px 20px;
   opacity:0;
@@ -31,6 +57,7 @@ h1,h2{font-family:'Playfair Display',serif;}
   transform:translateY(0);
 }
 
+/ CARD /
 .card{
   background:#fff;
   margin:20px auto;
@@ -40,29 +67,45 @@ h1,h2{font-family:'Playfair Display',serif;}
   box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-button{
-  padding:12px 25px;
-  border:none;
+/ BUTTON LINK */
+a.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 20px;
   background:#c9a85d;
   color:white;
-  border-radius:25px;
+  text-decoration:none;
+  border-radius:20px;
 }
 
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
 </style>
 </head>
 
 <body>
 
-<div id="cover" style="height:100vh;display:flex;flex-direction:column;justify-content:center;">
+<!-- COVER -->
+<div id="cover" class="cover">
+  <p>Kepada Yth:</p>
+  <h3 id="guest"></h3>
+
   <h2>Undangan Pernikahan</h2>
   <h1 class="gold">Dadan & Minah</h1>
-  <button onclick="openInv()">Buka Undangan</button>
+  <p>05 April 2026</p>
+
+  <button onclick="openInvite()">Buka Undangan</button>
 </div>
 
+<!-- CONTENT -->
 <div id="content" style="display:none;">
 
 <div class="section">
-  <p>“Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu...”</p>
+  <p>
+  “Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu...”
+  </p>
 </div>
 
 <div class="section">
@@ -81,21 +124,64 @@ button{
   </div>
 </div>
 
+<div class="section">
+  <div class="card">
+    <h3>Akad Nikah</h3>
+    <p>Rabu, 11 Maret 2026</p>
+    <p>08.00 - Selesai</p>
+  </div>
+
+  <div class="card">
+    <h3>Resepsi</h3>
+    <p>Minggu, 05 April 2026</p>
+    <p>08.00 - Selesai</p>
+  </div>
+</div>
+
+<div class="section">
+  <a class="btn" href="https://maps.app.goo.gl/yb116HDJssxE6qTx6?g_st=ic">
+    Lihat Lokasi
+  </a>
+</div>
+
+<div class="section">
+  <a id="waLink" class="btn">Konfirmasi Kehadiran</a>
+</div>
+
 </div>
 
 <script>
-function openInv(){
+// buka undangan
+function openInvite(){
   document.getElementById("cover").style.display="none";
   document.getElementById("content").style.display="block";
 }
 
-window.addEventListener("scroll",()=>{
+// animasi scroll
+window.addEventListener("scroll",function(){
   document.querySelectorAll(".section").forEach(sec=>{
     if(window.scrollY > sec.offsetTop-300){
       sec.classList.add("show");
     }
   });
 });
+
+// nama tamu
+let guest=new URLSearchParams(window.location.search).get('to');
+if(guest){
+  document.getElementById("guest").innerText=guest;
+}
+
+// WA
+let phone="6285787806145";
+let text="Saya akan hadir di pernikahan Dadan & Minah";
+if(guest){
+  text="Saya "+guest+" akan hadir di pernikahan Dadan & Minah";
+}
+
+document.getElementById("waLink").href=
+"https://wa.me/"+phone+"?text="+encodeURIComponent(text);
+
 </script>
 
 </body>
