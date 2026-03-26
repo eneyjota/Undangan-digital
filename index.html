@@ -3,136 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding of Dadan & Minah</title>
+    <title>The Wedding of Dadan & Minah</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #F8F5F2; color: #333; scroll-behavior: smooth; }
-        h1, h2, .serif { font-family: 'Bodoni Moda', serif; }
-        
-        /* Animasi Teks Mengalir (Marquee) */
-        .marquee { white-space: nowrap; overflow: hidden; position: relative; background: #333; color: #fff; padding: 10px 0; }
-        .marquee div { display: inline-block; padding-left: 100%; animation: marquee 15s linear infinite; text-transform: uppercase; letter-spacing: 0.5em; font-size: 0.75rem; }
-        @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+        body { font-family: 'Montserrat', sans-serif; background-color: #F2EFE9; color: #2D2A26; overflow-x: hidden; }
+        h1, h2, h3, .serif { font-family: 'Bodoni Moda', serif; }
 
-        /* Floating Animation untuk Elemen Grafis */
-        .floating { animation: floating 3s ease-in-out infinite; }
-        @keyframes floating { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+        /* Animasi Text Berjalan (Marquee) */
+        .marquee-container { background: #2D2A26; color: #F2EFE9; padding: 15px 0; overflow: hidden; display: flex; }
+        .marquee-content { display: flex; white-space: nowrap; animation: scroll 20s linear infinite; font-size: 0.7rem; letter-spacing: 0.5em; text-transform: uppercase; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        .section-padding { padding: 80px 24px; }
-        .fade-in { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
-        .visible { opacity: 1; transform: translateY(0); }
+        /* Animasi Tipografi Melayang */
+        .bg-text { position: absolute; font-size: 25vw; opacity: 0.03; font-style: italic; z-index: 0; pointer-events: none; animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* Scroll Reveal Effect */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .btn-rsvp { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .btn-rsvp:hover { transform: scale(1.05); letter-spacing: 0.3em; }
     </style>
 </head>
 <body>
 
-    <section class="h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden bg-[#EAE4DD]">
-        <div class="absolute top-10 left-10 serif italic text-9xl opacity-10 floating">D</div>
-        <div class="absolute bottom-10 right-10 serif italic text-9xl opacity-10 floating" style="animation-delay: 1s;">M</div>
+    <section class="h-screen flex flex-col justify-center items-center text-center relative px-6 bg-[#E8E2D9]">
+        <div class="bg-text top-10 left-[-5%]">Dadan</div>
+        <div class="bg-text bottom-10 right-[-5%]" style="animation-delay: 2s;">Minah</div>
         
-        <p class="uppercase tracking-[0.4em] text-[10px] mb-8 animate__animated animate__fadeInDown">Official Invitation</p>
-        <h1 class="text-6xl md:text-8xl mb-4 serif italic font-bold animate__animated animate__fadeInUp">Dadan & Minah</h1>
-        <p class="serif text-xl tracking-[0.3em] mb-12">11 . 03 . 2026</p>
-        <div class="w-[1px] h-24 bg-black animate-pulse"></div>
+        <div class="z-10 reveal active">
+            <p class="uppercase tracking-[0.5em] text-[10px] mb-6 font-semibold">Special Invitation</p>
+            <h1 class="text-6xl md:text-9xl mb-4 italic font-bold leading-tight">Dadan <span class="font-light">&</span> Minah</h1>
+            <div class="h-[1px] w-24 bg-black mx-auto my-10"></div>
+            <p class="serif text-2xl tracking-[0.2em]">11 . 03 . 2026</p>
+        </div>
     </section>
 
-    <div class="marquee">
-        <div>Dadan & Minah — 11 March 2026 — Save The Date — Dadan & Minah — 11 March 2026 — Save The Date —</div>
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>Dadan & Minah Wedding — 11 March 2026 — Save The Date — Dadan & Minah Wedding — 11 March 2026 — Save The Date —&nbsp;</span>
+            <span>Dadan & Minah Wedding — 11 March 2026 — Save The Date — Dadan & Minah Wedding — 11 March 2026 — Save The Date —&nbsp;</span>
+        </div>
     </div>
 
-    <section class="section-padding bg-white text-center">
-        <div class="max-w-2xl mx-auto">
-            <span class="text-4xl serif opacity-30">“</span>
-            <p class="italic serif text-2xl leading-relaxed px-4">
-                Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya.
+    <section class="py-32 px-10 text-center bg-white reveal">
+        <div class="max-w-3xl mx-auto border-l border-r border-gray-100 px-6">
+            <p class="serif italic text-2xl md:text-3xl leading-relaxed text-gray-700">
+                "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya."
             </p>
-            <p class="text-xs uppercase tracking-widest mt-6 font-semibold">— Ar-Rum: 21</p>
+            <p class="mt-8 text-[10px] uppercase tracking-[0.4em] font-bold text-gray-400">— Ar-Rum : 21</p>
         </div>
     </section>
 
-    <section class="section-padding bg-[#F8F5F2] overflow-hidden">
-        <div class="container mx-auto grid md:grid-cols-2 gap-20">
-            <div class="text-center md:text-right relative">
-                <h2 class="text-5xl md:text-7xl font-bold mb-4 serif italic">Ahmad Ramadani</h2>
-                <p class="text-xl serif italic mb-6">Dadan</p>
-                <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Putra Kedua Dari</p>
-                <p class="font-semibold text-sm">Bapak Nanang Supiansyah & Ibu Jaminah</p>
-                <div class="hidden md:block absolute -right-10 top-0 text-[120px] serif opacity-5 font-bold italic">GROOM</div>
+    <section class="py-20 bg-[#F2EFE9] px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col gap-24">
+            <div class="flex flex-col md:flex-row items-center gap-10 reveal">
+                <div class="w-full md:w-1/2 text-center md:text-right">
+                    <span class="text-xs uppercase tracking-widest text-gray-400">The Groom</span>
+                    <h2 class="text-5xl md:text-7xl serif italic font-bold my-4">Ahmad Ramadani</h2>
+                    <p class="font-bold text-sm tracking-widest mb-2 uppercase italic text-gray-600">( Dadan )</p>
+                    <p class="text-sm leading-loose">Putra Kedua dari <br> <b>Bapak Nanang Supiansyah & Ibu Jaminah</b></p>
+                </div>
+                <div class="hidden md:block w-1/2 text-[150px] serif italic font-black opacity-[0.05]">GROOM</div>
             </div>
-            <div class="text-center md:text-left relative">
-                <h2 class="text-5xl md:text-7xl font-bold mb-4 serif italic">Siti Aminah</h2>
-                <p class="text-xl serif italic mb-6">Minah</p>
-                <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Putri Terakhir Dari</p>
-                <p class="font-semibold text-sm">Bapak Yanto (Alm) & Ibu St. Hapsah</p>
-                <div class="hidden md:block absolute -left-10 top-0 text-[120px] serif opacity-5 font-bold italic">BRIDE</div>
-            </div>
-        </div>
-    </section>
 
-    <section class="section-padding bg-white border-y border-gray-100">
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-            <div class="border p-10 text-center space-y-4 shadow-sm bg-[#FDFCFB]">
-                <h3 class="serif text-3xl italic">Akad Nikah</h3>
-                <div class="h-[1px] w-12 bg-black mx-auto"></div>
-                <p class="font-bold uppercase tracking-widest text-sm">Rabu, 11 Maret 2026</p>
-                <p class="text-sm text-gray-600">08.00 WITA – Selesai</p>
-                <p class="text-xs leading-relaxed uppercase tracking-tighter">Jl. Poros Desa Semisir, Kec. Pulau Laut Tengah, Kotabaru, Kalsel</p>
-            </div>
-            <div class="border p-10 text-center space-y-4 shadow-sm bg-[#FDFCFB]">
-                <h3 class="serif text-3xl italic">Resepsi</h3>
-                <div class="h-[1px] w-12 bg-black mx-auto"></div>
-                <p class="font-bold uppercase tracking-widest text-sm">Minggu, 05 April 2026</p>
-                <p class="text-sm text-gray-600">08.00 WITA – Selesai</p>
-                <p class="text-xs leading-relaxed uppercase tracking-tighter">Kediaman Mempelai Wanita, Desa Semisir, Kotabaru, Kalsel</p>
+            <div class="flex flex-col md:flex-row-reverse items-center gap-10 reveal">
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <span class="text-xs uppercase tracking-widest text-gray-400">The Bride</span>
+                    <h2 class="text-5xl md:text-7xl serif italic font-bold my-4">Siti Aminah</h2>
+                    <p class="font-bold text-sm tracking-widest mb-2 uppercase italic text-gray-600">( Minah )</p>
+                    <p class="text-sm leading-loose">Putri Terakhir dari <br> <b>Bapak Yanto (Alm) & Ibu St. Hapsah</b></p>
+                </div>
+                <div class="hidden md:block w-1/2 text-[150px] serif italic font-black opacity-[0.05]">BRIDE</div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding bg-[#F8F5F2] text-center">
-        <h2 class="serif text-4xl italic mb-8">Google Maps</h2>
-        <a href="https://maps.app.goo.gl/yb116HDJssxE6qTx6?g_st=ic" target="_blank" class="inline-block border-2 border-black px-10 py-3 text-[10px] uppercase font-bold tracking-[0.3em] hover:bg-black hover:text-white transition-all">Buka Petunjuk Jalan</a>
+    <section class="py-32 bg-white px-6 reveal">
+        <h2 class="text-center serif text-5xl italic mb-20">The Ceremony</h2>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+            <div class="p-12 border border-gray-200 text-center hover:border-black transition-colors duration-700">
+                <h3 class="serif text-3xl mb-6 italic">Akad Nikah</h3>
+                <p class="font-bold mb-1">Rabu, 11 Maret 2026</p>
+                <p class="text-sm mb-6 text-gray-500 italic">08.00 WITA – Selesai</p>
+                <div class="h-[1px] w-12 bg-black mx-auto mb-6"></div>
+                <p class="text-xs uppercase tracking-widest leading-relaxed">Jl. Poros Desa Semisir, Kec. Pulau Laut Tengah, Kotabaru, Kalsel</p>
+            </div>
+            <div class="p-12 border border-black text-center bg-[#2D2A26] text-white">
+                <h3 class="serif text-3xl mb-6 italic">Resepsi</h3>
+                <p class="font-bold mb-1">Minggu, 05 April 2026</p>
+                <p class="text-sm mb-6 text-gray-300 italic">08.00 WITA – Selesai</p>
+                <div class="h-[1px] w-12 bg-white mx-auto mb-6"></div>
+                <p class="text-xs uppercase tracking-widest leading-relaxed">Kediaman Mempelai Wanita, Desa Semisir, Kotabaru, Kalsel</p>
+            </div>
+        </div>
     </section>
 
-    <section class="section-padding bg-white text-center">
-        <h2 class="serif text-4xl mb-2 italic">R.S.V.P.</h2>
-        <p class="text-[10px] uppercase tracking-[0.3em] mb-12 text-gray-500">Mohon Konfirmasi Kehadiran</p>
+    <section class="py-20 bg-[#F2EFE9] text-center reveal">
+        <h2 class="serif text-4xl mb-8 italic">Find Our Place</h2>
+        <a href="https://maps.app.goo.gl/yb116HDJssxE6qTx6?g_st=ic" target="_blank" class="inline-block px-12 py-4 border border-black text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-black hover:text-white transition-all">Open Google Maps</a>
+    </section>
+
+    <section class="py-32 bg-white px-6 text-center reveal">
+        <h2 class="serif text-5xl mb-4 italic">R.S.V.P</h2>
+        <p class="text-[10px] uppercase tracking-[0.4em] mb-16 text-gray-400">Mohon Konfirmasi Kehadiran Anda</p>
         
-        <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-            <a href="https://wa.me/6285787806145?text=Halo%20Dadan%20&%20Minah,%20Saya%20akan%20hadir%20di%20acara%20pernikahan%20kalian.%20Terima%20kasih!" 
+        <div class="flex flex-col md:flex-row justify-center gap-6 max-w-2xl mx-auto">
+            <a href="https://wa.me/6285787806145?text=Halo%20Dadan%20&%20Minah,%20Saya%20akan%20hadir%20di%20acara%20pernikahan%20kalian!" 
                target="_blank" 
-               class="w-64 py-4 bg-black text-white text-[10px] uppercase font-bold tracking-[0.2em] shadow-lg hover:bg-gray-800 transition">
-                Saya Akan Hadir
+               class="btn-rsvp flex-1 py-5 bg-black text-white text-[10px] font-bold uppercase tracking-[0.2em]">
+               Saya Akan Hadir
             </a>
-            
-            <a href="https://wa.me/6285787806145?text=Halo%20Dadan%20&%20Minah,%20mohon%20maaf%20saya%20berhalangan%20hadir.%20Selamat%20menempuh%20hidup%20baru%20ya!" 
+            <a href="https://wa.me/6285787806145?text=Halo%20Dadan%20&%20Minah,%20Mohon%20maaf%20saya%20berhalangan%20hadir.%20Selamat%20berbahagia!" 
                target="_blank" 
-               class="w-64 py-4 border border-black text-black text-[10px] uppercase font-bold tracking-[0.2em] hover:bg-gray-100 transition">
-                Berhalangan Hadir
+               class="btn-rsvp flex-1 py-5 border border-black text-black text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-gray-100">
+               Berhalangan Hadir
             </a>
         </div>
     </section>
 
-    <section class="h-[60vh] flex flex-col justify-center items-center text-center bg-[#EAE4DD]">
-        <h2 class="serif text-5xl mb-6 italic animate-pulse">Terima Kasih</h2>
-        <p class="max-w-xs text-xs leading-loose tracking-widest text-gray-600">KEHADIRAN ANDA ADALAH DOA TERBAIK BAGI KAMI.</p>
-        <p class="mt-12 font-bold serif text-2xl italic">Dadan & Minah</p>
+    <section class="h-screen flex flex-col justify-center items-center text-center bg-[#2D2A26] text-white px-6">
+        <h2 class="serif text-6xl md:text-8xl italic mb-8 reveal">Thank You</h2>
+        <p class="max-w-md text-xs leading-loose tracking-[0.2em] text-gray-400 mb-12 reveal">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+        <p class="font-bold serif text-3xl italic reveal">Dadan & Minah</p>
     </section>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+        // Fungsi untuk mendeteksi scroll dan memicu animasi
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
                 }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('section, div.border').forEach(section => {
-            section.classList.add('fade-in');
-            observer.observe(section);
-        });
+            }
+        }
+        window.addEventListener("scroll", reveal);
     </script>
 </body>
 </html>
