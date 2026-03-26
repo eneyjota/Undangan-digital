@@ -1,188 +1,185 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Dadan & Minah</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --pink: #f14e95; --bg: #f8f9fa; --shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        body { font-family: 'Work Sans', sans-serif; background-color: var(--bg); overflow-x: hidden; }
+        .sacramento { font-family: 'Sacramento', cursive; }
+        
+        /* Hero Section - Mobile First 9:16 */
+        .hero { 
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; 
+            text-align: center; color: white; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80'); 
+            background-size: cover; background-position: center;
+        }
+        
+        /* Audio Control */
+        .audio-icon-wrapper { 
+            width: 4rem; height: 4rem; position: fixed; bottom: 2.5rem; right: 2rem; 
+            cursor: pointer; color: white; mix-blend-mode: difference; display: none; 
+            align-items: center; justify-content: center; z-index: 9999; 
+        }
+        .rotating { animation: rotating 4s linear infinite; }
+        @keyframes rotating { from { transform: rotate(0); } to { transform: rotate(360deg); } }
 
-<!-- FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-
-<title>Dadan & Minah</title>
-
-<style>
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(#ffffff,#f5f1e8);
-  text-align:center;
-  color:#333;
-}
-
-h1,h2,h3{
-  font-family:'Playfair Display',serif;
-}
-
-.gold{
-  color:#c9a85d;
-}
-
-/* COVER /
-.cover{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  animation:fadeIn 1.5s ease;
-}
-
-button{
-  padding:12px 25px;
-  border:none;
-  background:#c9a85d;
-  color:white;
-  border-radius:25px;
-  margin-top:20px;
-}
-
-/ SECTION /
-.section{
-  padding:60px 20px;
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-
-.section.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/ CARD /
-.card{
-  background:#fff;
-  margin:20px auto;
-  padding:25px;
-  border-radius:15px;
-  max-width:400px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
-
-/ BUTTON LINK */
-a.btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:10px 20px;
-  background:#c9a85d;
-  color:white;
-  text-decoration:none;
-  border-radius:20px;
-}
-
-@keyframes fadeIn{
-  from{opacity:0;}
-  to{opacity:1;}
-}
-</style>
+        /* Elegant Card Styling */
+        .card-custom { border: none; border-radius: 15px; box-shadow: var(--shadow); background: white; padding: 2rem; margin-bottom: 2rem; }
+    </style>
 </head>
-
 <body>
 
-<!-- COVER -->
-<div id="cover" class="cover">
-  <p>Kepada Yth:</p>
-  <h3 id="guest"></h3>
+    <!-- Hero Section -->
+    <section id="hero" class="hero px-3">
+        <main>
+            <h4 class="mb-3">Kepada <span id="nama-tamu">Bapak/Ibu/Saudara/i</span>,</h4>
+            <h1 class="sacramento display-1">Dadan & Minah</h1>
+            <p class="fs-5">Kami mengundang Anda di acara pernikahan kami</p>
+            <button class="btn btn-light btn-lg mt-3 shadow" onclick="enableScroll()">
+                <i class="bi bi-envelope-open-heart me-2"></i>Lihat Undangan
+            </button>
+        </main>
+    </section>
 
-  <h2>Undangan Pernikahan</h2>
-  <h1 class="gold">Dadan & Minah</h1>
-  <p>05 April 2026</p>
+    <!-- Mempelai Section -->
+    <section id="mempelai" class="container py-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="sacramento display-4 mb-4">Mempelai</h2>
+                <div class="card-custom">
+                    <h3 class="fw-bold">Ahmad Ramadani (Dadan)</h3>
+                    <p class="text-muted">Putra Kedua dari Bapak Nanang Supiansyah & Ibu Jaminah</p>
+                    <div class="my-3"><i class="bi bi-heart-fill text-danger fs-3"></i></div>
+                    <h3 class="fw-bold">Siti Aminah (Minah)</h3>
+                    <p class="text-muted">Putri Terakhir dari Bapak Yanto (Alm) & Ibu St. Hapsah</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <button onclick="openInvite()">Buka Undangan</button>
-</div>
+    <!-- Acara Section -->
+    <section id="acara" class="py-5 bg-white shadow-sm">
+        <div class="container text-center">
+            <h2 class="sacramento display-4 mb-5">Detail Acara</h2>
+            <div class="row g-4 justify-content-center">
+                <!-- Akad -->
+                <div class="col-md-5">
+                    <div class="card-custom">
+                        <i class="bi bi-calendar-check fs-1 text-primary mb-3"></i>
+                        <h3>Akad Nikah</h3>
+                        <p>Rabu, 11 Maret 2026<br>08.00 WITA – Selesai</p>
+                        <p class="small text-muted">Kediaman Mempelai Wanita<br>Jl. Poros Desa Semisir, Kotabaru</p>
+                    </div>
+                </div>
+                <!-- Resepsi -->
+                <div class="col-md-5">
+                    <div class="card-custom">
+                        <i class="bi bi-people-fill fs-1 text-primary mb-3"></i>
+                        <h3>Resepsi</h3>
+                        <p>Minggu, 05 April 2026<br>08.00 WITA – Selesai</p>
+                        <p class="small text-muted">Kediaman Mempelai Wanita<br>Jl. Poros Desa Semisir, Kotabaru</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- CONTENT -->
-<div id="content" style="display:none;">
+    <!-- Peta & RSVP -->
+    <section id="lokasi" class="container py-5">
+        <div class="text-center mb-4">
+            <h2 class="sacramento display-4">Lokasi Acara</h2>
+            <p class="text-muted">Klik peta di bawah untuk petunjuk arah</p>
+            <div class="ratio ratio-16x9 mb-4 rounded-4 overflow-hidden shadow">
+                <!-- Gunakan link embed dari Google Maps -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15941.13458797434!2d116.1868!3d-3.3218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTknMTguNSJTIDExNsKwMTEnMTIuNSJF!5e0!3m2!1sid!2sid!4v1700000000000" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <a href="https://maps.app.goo.gl/yb116HDJssxE6qTx6" target="_blank" class="btn btn-primary px-4 shadow">
+                <i class="bi bi-geo-alt me-2"></i>Buka Google Maps
+            </a>
+        </div>
 
-<div class="section">
-  <p>
-  “Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu...”
-  </p>
-</div>
+        <!-- RSVP Form -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6 card-custom">
+                <h3 class="text-center mb-4">Konfirmasi Kehadiran</h3>
+                <form id="rsvp-form">
+                    <div class="mb-3">
+                        <label class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama" name="nama">
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Kirim Via WhatsApp</button>
+                </form>
+                <!-- Area Buku Tamu Disqus -->
+                <div id="disqus_thread" class="mt-5"></div>
+            </div>
+        </div>
+    </section>
 
-<div class="section">
-  <h2 class="gold">Ahmad Ramadani & Siti Aminah</h2>
-</div>
+    <!-- Audio Player -->
+    <div id="audio-container">
+        <audio id="song" loop>
+            <source src="audio/music.mp3" type="audio/mp3">
+        </audio>
+        <div class="audio-icon-wrapper">
+            <i class="bi bi-disc fs-1"></i>
+        </div>
+    </div>
 
-<div class="section">
-  <div class="card">
-    <h3>Mempelai Pria</h3>
-    <p>Ahmad Ramadani (Dadan)</p>
-  </div>
+    <script>
+        // Logika Nama Tamu [4-7]
+        const urlParams = new URLSearchParams(window.location.search);
+        const n = urlParams.get('n') || '';
+        const p = urlParams.get('p') || 'Bapak/Ibu/Saudara/i';
+        
+        if (n) {
+            document.querySelector('#nama-tamu').innerText = `${p} ${n}`;
+            document.querySelector('#nama').value = n;
+        }
 
-  <div class="card">
-    <h3>Mempelai Wanita</h3>
-    <p>Siti Aminah (Minah)</p>
-  </div>
-</div>
+        // Logika Audio & Scroll [8-11]
+        const song = document.querySelector('#song');
+        const audioWrapper = document.querySelector('.audio-icon-wrapper');
+        const audioIcon = document.querySelector('.audio-icon-wrapper i');
+        let isPlaying = false;
 
-<div class="section">
-  <div class="card">
-    <h3>Akad Nikah</h3>
-    <p>Rabu, 11 Maret 2026</p>
-    <p>08.00 - Selesai</p>
-  </div>
+        function enableScroll() {
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+            song.volume = 0.2;
+            song.play();
+            isPlaying = true;
+            audioWrapper.style.display = 'flex';
+            audioIcon.classList.add('rotating');
+        }
 
-  <div class="card">
-    <h3>Resepsi</h3>
-    <p>Minggu, 05 April 2026</p>
-    <p>08.00 - Selesai</p>
-  </div>
-</div>
+        audioWrapper.onclick = function() {
+            if (isPlaying) {
+                song.pause();
+                audioIcon.classList.remove('bi-disc', 'rotating');
+                audioIcon.classList.add('bi-pause-circle');
+            } else {
+                song.play();
+                audioIcon.classList.add('bi-disc', 'rotating');
+                audioIcon.classList.remove('bi-pause-circle');
+            }
+            isPlaying = !isPlaying;
+        };
 
-<div class="section">
-  <a class="btn" href="https://maps.app.goo.gl/yb116HDJssxE6qTx6?g_st=ic">
-    Lihat Lokasi
-  </a>
-</div>
-
-<div class="section">
-  <a id="waLink" class="btn">Konfirmasi Kehadiran</a>
-</div>
-
-</div>
-
-<script>
-// buka undangan
-function openInvite(){
-  document.getElementById("cover").style.display="none";
-  document.getElementById("content").style.display="block";
-}
-
-// animasi scroll
-window.addEventListener("scroll",function(){
-  document.querySelectorAll(".section").forEach(sec=>{
-    if(window.scrollY > sec.offsetTop-300){
-      sec.classList.add("show");
-    }
-  });
-});
-
-// nama tamu
-let guest=new URLSearchParams(window.location.search).get('to');
-if(guest){
-  document.getElementById("guest").innerText=guest;
-}
-
-// WA
-let phone="6285787806145";
-let text="Saya akan hadir di pernikahan Dadan & Minah";
-if(guest){
-  text="Saya "+guest+" akan hadir di pernikahan Dadan & Minah";
-}
-
-document.getElementById("waLink").href=
-"https://wa.me/"+phone+"?text="+encodeURIComponent(text);
-
-</script>
-
+        // WhatsApp RSVP [12]
+        document.getElementById('rsvp-form').onsubmit = function(e) {
+            e.preventDefault();
+            const namaTamu = document.getElementById('nama').value;
+            const linkWA = `https://wa.me/085787806145?text=Halo Dadan %26 Minah, Saya ${namaTamu} mengonfirmasi akan hadir di acara pernikahan Anda.`;
+            window.open(linkWA, '_blank');
+        };
+    </script>
 </body>
 </html>
