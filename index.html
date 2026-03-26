@@ -3,239 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Dadan & Minah</title>
-    
-    <!-- Framework & Fonts -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <title>Undangan Pernikahan - Dadan & Minah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --primary: #c5a059; /* Gold Elegant */
-            --dark-text: #333333;
-            --bg-soft: #fdfaf5;
-            --glass: rgba(255, 255, 255, 0.85);
-        }
-        
-        body { font-family: 'Work Sans', sans-serif; background-color: var(--bg-soft); color: var(--dark-text); overflow: hidden; }
-        .sacramento { font-family: 'Sacramento', cursive; color: var(--primary); }
-        
-        /* Hero Section */
-        .hero { 
-            min-height: 100vh; display: flex; align-items: center; justify-content: center; 
-            text-align: center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-            url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80'); 
-            background-size: cover; background-position: center; color: white;
-        }
-
-        /* Container Styling */
-        section { padding: 80px 0; }
-        .glass-card { 
-            background: var(--glass); backdrop-filter: blur(8px); 
-            border: 1px solid rgba(255,255,255,0.5); border-radius: 25px; 
-            padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-        }
-
-        /* Mempelai Name Style (No Photo) */
-        .name-box { padding: 20px; border: 1px solid #eee; border-radius: 15px; background: white; }
-        .divider { width: 60px; height: 2px; background: var(--primary); margin: 20px auto; }
-
-        /* Timer Box */
-        .timer-box { 
-            background: white; color: var(--primary); padding: 15px; 
-            border-radius: 15px; min-width: 75px; margin: 5px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid var(--primary);
-        }
-
-        /* Floating Audio Button */
-        .audio-icon-wrapper { 
-            width: 50px; height: 50px; position: fixed; bottom: 30px; right: 30px; 
-            cursor: pointer; background: var(--primary); color: white; 
-            border-radius: 50%; display: none; align-items: center; 
-            justify-content: center; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        .rotating { animation: rotating 4s linear infinite; }
-        @keyframes rotating { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+        body { font-family: 'Montserrat', sans-serif; background-color: #F3F1ED; color: #4A4540; -webkit-font-smoothing: antialiased; }
+        h1, h2, .serif { font-family: 'Bodoni Moda', serif; }
+        .section-padding { padding: 100px 20px; }
+        .bg-beige { background-color: #F3F1ED; }
+        .btn { transition: all 0.3s ease; }
+        .btn:hover { letter-spacing: 0.3em; }
+        /* Animasi scroll sederhana */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s, transform 1s; }
+        .visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body>
+<body class="overflow-x-hidden">
 
-    <!-- Section 1: Hero (Pintu Masuk) -->
-    <section id="hero" class="hero px-3">
-        <div class="glass-card text-dark" style="max-width: 500px;">
-            <p class="text-uppercase fw-bold mb-2" style="letter-spacing: 3px; font-size: 0.8rem;">Walimatul 'Ursy</p>
-            <h1 class="sacramento display-2 mb-4">Dadan & Minah</h1>
-            <p class="mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-            <h4 id="nama-tamu" class="fw-bold text-primary mb-4">—</h4>
-            <button class="btn btn-dark btn-lg px-4 rounded-pill shadow" onclick="enableScroll()">
-                <i class="bi bi-envelope-open-heart me-2"></i>Buka Undangan
-            </button>
+    <section class="h-screen flex flex-col justify-center items-center text-center bg-beige p-6 relative">
+        <div class="absolute inset-0 flex items-center justify-center opacity-5">
+            <h1 class="text-[30vw] serif italic">D&M</h1>
+        </div>
+        <p class="uppercase tracking-[0.3em] text-xs mb-6 text-gray-600">The Wedding of</p>
+        <h1 class="text-7xl md:text-9xl mb-3 serif italic font-bold">Dadan <span class="font-normal">&</span> Minah</h1>
+        <div class="h-[1px] w-32 bg-gray-400 my-8"></div>
+        <p class="serif text-xl md:text-2xl tracking-widest">11 . 03 . 2026</p>
+    </section>
+
+    <section class="section-padding flex justify-center items-center text-center bg-white px-8">
+        <div class="max-w-3xl italic serif text-2xl md:text-3xl leading-relaxed text-gray-700">
+            "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya."
+            <p class="text-sm not-italic mt-6 font-sans uppercase tracking-[0.2em] text-gray-500">— Ar-Rum: 21</p>
         </div>
     </section>
 
-    <!-- Section 2: Ayat Suci -->
-    <section class="container text-center">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <i class="bi bi-heart-fill fs-3 text-primary mb-3"></i>
-                <p class="fs-5 italic px-3">
-                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
-                </p>
-                <h6 class="fw-bold mt-3 text-uppercase" style="letter-spacing: 2px;">— QS. Ar-Rum: 21</h6>
+    <section class="section-padding bg-beige">
+        <div class="container mx-auto max-w-5xl px-6 grid md:grid-cols-2 gap-16 items-center">
+            
+            <div class="flex flex-col items-center md:items-end text-center md:text-right">
+                <div class="serif text-[200px] leading-none mb-8 italic opacity-20">M</div>
+                <h2 class="text-5xl mb-4 font-bold">Siti Aminah</h2>
+                <p class="serif text-lg mb-4 text-gray-700">Minah</p>
+                <div class="w-16 h-[1px] bg-gray-400 mb-4 md:ml-auto md:mr-0 mx-auto"></div>
+                <p class="text-sm uppercase tracking-widest text-gray-500 mb-1">Putri Terakhir dari</p>
+                <p class="font-bold">Bapak Yanto (Alm) & Ibu St. Hapsah</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Section 3: Mempelai (Fokus Tipografi) -->
-    <section id="mempelai" class="container text-center">
-        <h2 class="sacramento display-3 mb-5">Mempelai</h2>
-        <div class="row g-4 justify-content-center align-items-center">
-            <div class="col-md-5">
-                <div class="name-box">
-                    <h3 class="fw-bold mb-1">Ahmad Ramadani</h3>
-                    <p class="text-primary fw-bold mb-3">(Dadan)</p>
-                    <div class="divider"></div>
-                    <p class="small text-muted mb-0">Putra Kedua dari</p>
-                    <p class="fw-bold">Bapak Nanang Supiansyah <br>& Ibu Jaminah</p>
-                </div>
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="serif text-[200px] leading-none mb-8 italic opacity-20">D</div>
+                <h2 class="text-5xl mb-4 font-bold">Ahmad Ramadani</h2>
+                <p class="serif text-lg mb-4 text-gray-700">Dadan</p>
+                <div class="w-16 h-[1px] bg-gray-400 mb-4 md:mr-auto md:ml-0 mx-auto"></div>
+                <p class="text-sm uppercase tracking-widest text-gray-500 mb-1">Putra Kedua dari</p>
+                <p class="font-bold">Bapak Nanang Supiansyah & Ibu Jaminah</p>
             </div>
-            <div class="col-md-1">
-                <h1 class="sacramento display-3">&</h1>
+
+        </div>
+    </section>
+
+    <section class="section-padding text-center bg-white border-y border-gray-100">
+        <h2 class="text-5xl md:text-6xl mb-12 serif italic font-light tracking-wide">Save<br>the Date</h2>
+        <div class="max-w-md mx-auto space-y-4 text-lg border-t border-b border-gray-200 py-8">
+            <p class="uppercase tracking-[0.2em] text-sm text-gray-600">Akad Nikah</p>
+            <p class="font-bold text-3xl">Rabu, 11 Maret 2026</p>
+            <p class="text-gray-700">08.00 WITA – Selesai</p>
+            <div class="h-6"></div>
+            <p class="uppercase tracking-[0.2em] text-sm text-gray-600">Lokasi</p>
+            <p class="max-w-sm mx-auto">Kediaman Mempelai Wanita<br>Jl. Poros Desa Semisir, Kecamatan Pulau Laut Tengah, Kotabaru, Kalsel</p>
+        </div>
+    </section>
+
+    <section class="section-padding text-center bg-beige">
+        <div class="max-w-md mx-auto space-y-4 text-lg border border-gray-300 bg-white p-12">
+            <p class="uppercase tracking-[0.2em] text-sm text-gray-600">Acara Resepsi</p>
+            <p class="font-bold text-3xl">Minggu, 05 April 2026</p>
+            <p class="text-gray-700">08.00 WITA – Selesai</p>
+            <div class="h-[1px] w-20 bg-gray-400 mx-auto my-6"></div>
+            <p class="uppercase tracking-[0.2em] text-sm text-gray-600">Lokasi</p>
+            <p>Kediaman Mempelai Wanita<br>Desa Semisir, Kotabaru, Kalimantan Selatan</p>
+        </div>
+    </section>
+
+    <section class="section-padding bg-white text-center">
+        <h2 class="text-4xl mb-8 serif italic font-light">The Location</h2>
+        <div class="max-w-5xl mx-auto border border-gray-200 p-3 bg-beige">
+            <div class="bg-gray-200 h-80 flex items-center justify-center text-gray-400 italic mb-6">
+                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             </div>
-            <div class="col-md-5">
-                <div class="name-box">
-                    <h3 class="fw-bold mb-1">Siti Aminah</h3>
-                    <p class="text-primary fw-bold mb-3">(Minah)</p>
-                    <div class="divider"></div>
-                    <p class="small text-muted mb-0">Putri Terakhir dari</p>
-                    <p class="fw-bold">Bapak Yanto (Alm) <br>& Ibu St. Hapsah</p>
-                </div>
-            </div>
+            <a href="https://maps.app.goo.gl/yb116HDJssxE6qTx6?g_st=ic" target="_blank" class="btn inline-block px-12 py-4 bg-black text-white text-xs uppercase tracking-[0.2em] font-bold">Buka Petunjuk Jalan</a>
         </div>
     </section>
 
-    <!-- Section 4: Countdown -->
-    <section class="text-center py-5" style="background: #fff9f0;">
-        <p class="text-uppercase fw-bold mb-4" style="letter-spacing: 2px;">Menghitung Hari Bahagia</p>
-        <div class="d-flex justify-content-center flex-wrap" id="countdown">
-            <div class="timer-box"><h2 id="days" class="mb-0 fw-bold">00</h2><small>Hari</small></div>
-            <div class="timer-box"><h2 id="hours" class="mb-0 fw-bold">00</h2><small>Jam</small></div>
-            <div class="timer-box"><h2 id="minutes" class="mb-0 fw-bold">00</h2><small>Menit</small></div>
-            <div class="timer-box"><h2 id="seconds" class="mb-0 fw-bold">00</h2><small>Detik</small></div>
-        </div>
+    <section class="section-padding bg-beige text-center">
+        <h2 class="text-4xl mb-4 serif italic">R.S.V.P.</h2>
+        <p class="mb-10 text-sm uppercase tracking-[0.2em] text-gray-600 max-w-sm mx-auto">Kehadiran anda adalah kehormatan bagi kami. Mohon konfirmasi kehadiran anda.</p>
+        <a href="https://wa.me/6285787806145?text=Halo%20Dadan%20&%20Minah,%20saya%20akan%20datang!" target="_blank" class="btn inline-block border-b-2 border-black px-4 py-2 text-xs uppercase tracking-[0.2em] font-bold hover:bg-black hover:text-white transition-all">Konfirmasi via WhatsApp</a>
     </section>
 
-    <!-- Section 5: Ucapan & Doa Restu (Wedding Wish) -->
-    <section class="container text-center">
-        <div class="glass-card mx-auto" style="max-width: 800px;">
-            <h2 class="sacramento display-4 mb-4">Doa & Harapan</h2>
-            <p class="fs-5 mb-4">
-                "Tiada kesan yang paling dalam selain kehadiran serta doa restu dari Bapak/Ibu/Saudara/i sekalian di hari bahagia kami. Semoga Allah SWT senantiasa melimpahkan berkah dan kebahagiaan kepada kita semua."
-            </p>
-            <div class="divider"></div>
-            <p class="fw-bold mb-0">Dadan & Minah</p>
+    <section class="h-[70vh] flex flex-col justify-center items-center text-center bg-white p-6 relative">
+        <div class="absolute inset-0 flex items-center justify-center opacity-[0.03]">
+            <h1 class="text-[40vw] serif italic">Thank You</h1>
         </div>
+        <p class="max-w-xl px-6 text-sm leading-loose text-gray-600 mb-12">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.</p>
+        <p class="font-bold uppercase tracking-[0.3em] text-xs">Kami yang berbahagia</p>
+        <h2 class="serif text-6xl mt-2 italic font-bold">Dadan & Minah</h2>
     </section>
-
-    <!-- Section 6: Info Acara -->
-    <section id="acara" class="container">
-        <div class="row g-4 text-center justify-content-center">
-            <div class="col-md-5">
-                <div class="glass-card h-100">
-                    <i class="bi bi-calendar-check-fill fs-1 text-primary mb-3"></i>
-                    <h3 class="fw-bold mb-3">Akad Nikah</h3>
-                    <p class="fw-bold mb-1">Rabu, 11 Maret 2026</p>
-                    <p>Pukul 08.00 WITA – Selesai</p>
-                    <hr>
-                    <p class="small text-muted">Lokasi: Kediaman Mempelai Wanita <br> Jl. Poros Desa Semisir, Kotabaru</p>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="glass-card h-100">
-                    <i class="bi bi-calendar-heart-fill fs-1 text-primary mb-3"></i>
-                    <h3 class="fw-bold mb-3">Resepsi</h3>
-                    <p class="fw-bold mb-1">Minggu, 05 April 2026</p>
-                    <p>Pukul 08.00 WITA – Selesai</p>
-                    <hr>
-                    <p class="small text-muted">Lokasi: Kediaman Mempelai Wanita <br> Jl. Poros Desa Semisir, Kotabaru</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 7: Lokasi Maps -->
-    <section class="container text-center">
-        <h2 class="sacramento display-4 mb-4">Lokasi Acara</h2>
-        <div class="ratio ratio-16x9 mb-4 rounded-4 shadow-sm overflow-hidden border">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15941.1!2d116.18!3d-3.32!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTknMTguNSJTIDExNsKwMTEnMTIuNSJF!5e0!3m2!1sid!2sid!4v1700000000000"></iframe>
-        </div>
-        <a href="https://maps.app.goo.gl/yb116HDJssxE6qTx6" target="_blank" class="btn btn-primary btn-lg rounded-pill px-5">
-            <i class="bi bi-geo-alt-fill me-2"></i>Buka Petunjuk Jalan
-        </a>
-    </section>
-
-    <!-- Section 8: RSVP & Buku Tamu -->
-    <section id="rsvp" class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 glass-card">
-                <h3 class="text-center mb-4 fw-bold">Konfirmasi Kehadiran</h3>
-                <form id="rsvp-form">
-                    <div class="mb-3">
-                        <label class="form-label small text-muted">Nama Anda</label>
-                        <input type="text" class="form-control rounded-pill border-primary" id="nama" readonly>
-                    </div>
-                    <button type="submit" class="btn btn-success btn-lg w-100 rounded-pill shadow-sm">
-                        <i class="bi bi-whatsapp me-2"></i>Kirim RSVP WhatsApp
-                    </button>
-                </form>
-                
-                <!-- Area Buku Tamu (Disqus) -->
-                <div id="disqus_thread" class="mt-5"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Audio Control -->
-    <audio id="song" loop><source src="audio/music.mp3" type="audio/mp3"></audio>
-    <div class="audio-icon-wrapper"><i class="bi bi-disc fs-2"></i></div>
 
     <script>
-        // Ambil Nama Tamu dari URL [3-5]
-        const urlParams = new URLSearchParams(window.location.search);
-        const n = urlParams.get('n') || 'Tamu Undangan';
-        const p = urlParams.get('p') || 'Bapak/Ibu/Saudara/i';
-        document.querySelector('#nama-tamu').innerText = `${p} ${n}`;
-        document.querySelector('#nama').value = n; // Auto-fill RSVP [4, 6]
+        // Animasi fade-in saat scroll (tetap dipertahankan untuk estetika modern)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-        // Countdown Timer [7]
-        const target = new Date("April 5, 2026 08:00:00").getTime();
-        setInterval(() => {
-            const now = new Date().getTime();
-            const d = target - now;
-            document.getElementById("days").innerText = Math.floor(d / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerText = Math.floor((d % (1000 * 60)) / 1000);
-        }, 1000);
-
-        // Fungsi Buka Undangan & Jalankan Musik [8-10]
-        function enableScroll() {
-            document.body.style.overflow = "auto";
-            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-            const song = document.getElementById('song');
-            song.volume = 0.2; // Volume 20% [11]
-            song.play();
-            document.querySelector('.audio-icon-wrapper').style.display = 'flex';
-            document.querySelector('.audio-icon-wrapper i').classList.add('rotating');
-        }
-
-        // WhatsApp RSVP Logic [4, 6]
-        document.getElementById('rsvp-form').onsubmit = function(e) {
-            e.preventDefault();
-            const namaTamu = document.getElementById('nama').value;
-            window.open(`https://wa.me/085787806145?text=Halo Dadan %26 Minah, Saya ${namaTamu} akan hadir di acara pernikahan Anda.`);
-        };
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('fade-in');
+            observer.observe(section);
+        });
     </script>
 </body>
 </html>
