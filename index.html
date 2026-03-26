@@ -12,229 +12,229 @@
     
     <style>
         :root { 
-            --primary: #d4a373; 
-            --dark: #2d2d2d; 
-            --bg-light: #fdfaf5;
-            --glass: rgba(255, 255, 255, 0.8);
+            --primary: #c5a059; /* Gold Elegant */
+            --dark-text: #333333;
+            --bg-soft: #fdfaf5;
+            --glass: rgba(255, 255, 255, 0.85);
         }
         
-        body { font-family: 'Work Sans', sans-serif; background-color: var(--bg-light); color: var(--dark); overflow: hidden; }
+        body { font-family: 'Work Sans', sans-serif; background-color: var(--bg-soft); color: var(--dark-text); overflow: hidden; }
         .sacramento { font-family: 'Sacramento', cursive; color: var(--primary); }
         
         /* Hero Section */
         .hero { 
             min-height: 100vh; display: flex; align-items: center; justify-content: center; 
-            text-align: center; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-            url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80'); 
+            text-align: center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80'); 
             background-size: cover; background-position: center; color: white;
         }
 
         /* Container Styling */
-        section { padding: 100px 0; }
+        section { padding: 80px 0; }
         .glass-card { 
-            background: var(--glass); backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; 
-            padding: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); 
+            background: var(--glass); backdrop-filter: blur(8px); 
+            border: 1px solid rgba(255,255,255,0.5); border-radius: 25px; 
+            padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
         }
 
-        /* Countdown */
+        /* Mempelai Name Style (No Photo) */
+        .name-box { padding: 20px; border: 1px solid #eee; border-radius: 15px; background: white; }
+        .divider { width: 60px; height: 2px; background: var(--primary); margin: 20px auto; }
+
+        /* Timer Box */
         .timer-box { 
-            background: var(--primary); color: white; padding: 15px; 
-            border-radius: 12px; min-width: 80px; margin: 5px;
+            background: white; color: var(--primary); padding: 15px; 
+            border-radius: 15px; min-width: 75px; margin: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid var(--primary);
         }
 
         /* Floating Audio Button */
         .audio-icon-wrapper { 
-            width: 4rem; height: 4rem; position: fixed; bottom: 2.5rem; right: 2rem; 
+            width: 50px; height: 50px; position: fixed; bottom: 30px; right: 30px; 
             cursor: pointer; background: var(--primary); color: white; 
             border-radius: 50%; display: none; align-items: center; 
             justify-content: center; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         .rotating { animation: rotating 4s linear infinite; }
         @keyframes rotating { from { transform: rotate(0); } to { transform: rotate(360deg); } }
-
-        hr.line { border: 0; border-top: 1px solid var(--primary); width: 50px; margin: 20px auto; }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
+    <!-- Section 1: Hero (Pintu Masuk) -->
     <section id="hero" class="hero px-3">
-        <div class="glass-card text-dark">
-            <p class="mb-2 text-uppercase fw-bold ls-2" style="letter-spacing: 3px;">The Wedding of</p>
-            <h1 class="sacramento display-1 my-3">Dadan & Minah</h1>
-            <p>Kepada Bapak/Ibu/Saudara/i</p>
-            <h4 id="nama-tamu" class="fw-bold mb-4">—</h4>
-            <button class="btn btn-primary btn-lg shadow" onclick="enableScroll()">
+        <div class="glass-card text-dark" style="max-width: 500px;">
+            <p class="text-uppercase fw-bold mb-2" style="letter-spacing: 3px; font-size: 0.8rem;">Walimatul 'Ursy</p>
+            <h1 class="sacramento display-2 mb-4">Dadan & Minah</h1>
+            <p class="mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <h4 id="nama-tamu" class="fw-bold text-primary mb-4">—</h4>
+            <button class="btn btn-dark btn-lg px-4 rounded-pill shadow" onclick="enableScroll()">
                 <i class="bi bi-envelope-open-heart me-2"></i>Buka Undangan
             </button>
         </div>
     </section>
 
-    <!-- Surah Section -->
+    <!-- Section 2: Ayat Suci -->
     <section class="container text-center">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <i class="bi bi-quote fs-1 text-primary"></i>
-                <p class="fs-5 italic mb-4">
+                <i class="bi bi-heart-fill fs-3 text-primary mb-3"></i>
+                <p class="fs-5 italic px-3">
                     "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
                 </p>
-                <h5 class="fw-bold">— QS. Ar-Rum: 21</h5>
+                <h6 class="fw-bold mt-3 text-uppercase" style="letter-spacing: 2px;">— QS. Ar-Rum: 21</h6>
             </div>
         </div>
     </section>
 
-    <!-- Mempelai Section (Tanpa Foto) -->
-    <section id="mempelai" class="container text-center bg-white py-5 shadow-sm rounded-4">
+    <!-- Section 3: Mempelai (Fokus Tipografi) -->
+    <section id="mempelai" class="container text-center">
         <h2 class="sacramento display-3 mb-5">Mempelai</h2>
-        <div class="row g-5 justify-content-center align-items: center;">
+        <div class="row g-4 justify-content-center align-items-center">
             <div class="col-md-5">
-                <h3 class="fw-bold">Ahmad Ramadani (Dadan)</h3>
-                <hr class="line">
-                <p>Putra Kedua dari <br> <strong>Bapak Nanang Supiansyah & Ibu Jaminah</strong></p>
+                <div class="name-box">
+                    <h3 class="fw-bold mb-1">Ahmad Ramadani</h3>
+                    <p class="text-primary fw-bold mb-3">(Dadan)</p>
+                    <div class="divider"></div>
+                    <p class="small text-muted mb-0">Putra Kedua dari</p>
+                    <p class="fw-bold">Bapak Nanang Supiansyah <br>& Ibu Jaminah</p>
+                </div>
             </div>
-            <div class="col-md-2">
-                <h1 class="sacramento display-2">&</h1>
+            <div class="col-md-1">
+                <h1 class="sacramento display-3">&</h1>
             </div>
             <div class="col-md-5">
-                <h3 class="fw-bold">Siti Aminah (Minah)</h3>
-                <hr class="line">
-                <p>Putri Terakhir dari <br> <strong>Bapak Yanto (Alm) & Ibu St. Hapsah</strong></p>
+                <div class="name-box">
+                    <h3 class="fw-bold mb-1">Siti Aminah</h3>
+                    <p class="text-primary fw-bold mb-3">(Minah)</p>
+                    <div class="divider"></div>
+                    <p class="small text-muted mb-0">Putri Terakhir dari</p>
+                    <p class="fw-bold">Bapak Yanto (Alm) <br>& Ibu St. Hapsah</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Countdown Timer -->
-    <section class="container text-center">
+    <!-- Section 4: Countdown -->
+    <section class="text-center py-5" style="background: #fff9f0;">
         <p class="text-uppercase fw-bold mb-4" style="letter-spacing: 2px;">Menghitung Hari Bahagia</p>
         <div class="d-flex justify-content-center flex-wrap" id="countdown">
-            <div class="timer-box"><h2 id="days" class="mb-0">00</h2><small>Hari</small></div>
-            <div class="timer-box"><h2 id="hours" class="mb-0">00</h2><small>Jam</small></div>
-            <div class="timer-box"><h2 id="minutes" class="mb-0">00</h2><small>Menit</small></div>
-            <div class="timer-box"><h2 id="seconds" class="mb-0">00</h2><small>Detik</small></div>
+            <div class="timer-box"><h2 id="days" class="mb-0 fw-bold">00</h2><small>Hari</small></div>
+            <div class="timer-box"><h2 id="hours" class="mb-0 fw-bold">00</h2><small>Jam</small></div>
+            <div class="timer-box"><h2 id="minutes" class="mb-0 fw-bold">00</h2><small>Menit</small></div>
+            <div class="timer-box"><h2 id="seconds" class="mb-0 fw-bold">00</h2><small>Detik</small></div>
         </div>
     </section>
 
-    <!-- Wedding Wish / Doa -->
+    <!-- Section 5: Ucapan & Doa Restu (Wedding Wish) -->
     <section class="container text-center">
-        <div class="glass-card">
-            <h2 class="sacramento display-4 mb-4">Wedding Wish</h2>
-            <p class="fs-5 px-md-5">
-                "Ungkapan terima kasih yang tulus kami sampaikan atas kehadiran serta doa restu Anda. Kehadiran Anda adalah kado terindah bagi kami. Semoga Tuhan membalas setiap kebaikan dan langkah kaki Anda dengan keberkahan yang melimpah."
+        <div class="glass-card mx-auto" style="max-width: 800px;">
+            <h2 class="sacramento display-4 mb-4">Doa & Harapan</h2>
+            <p class="fs-5 mb-4">
+                "Tiada kesan yang paling dalam selain kehadiran serta doa restu dari Bapak/Ibu/Saudara/i sekalian di hari bahagia kami. Semoga Allah SWT senantiasa melimpahkan berkah dan kebahagiaan kepada kita semua."
             </p>
-            <p class="fw-bold mt-4 text-primary">Kami yang berbahagia,<br>Dadan & Minah</p>
+            <div class="divider"></div>
+            <p class="fw-bold mb-0">Dadan & Minah</p>
         </div>
     </section>
 
-    <!-- Detail Acara -->
+    <!-- Section 6: Info Acara -->
     <section id="acara" class="container">
         <div class="row g-4 text-center justify-content-center">
             <div class="col-md-5">
                 <div class="glass-card h-100">
-                    <i class="bi bi-calendar-check fs-1 text-primary mb-3"></i>
-                    <h3>Akad Nikah</h3>
-                    <p class="fw-bold">Rabu, 11 Maret 2026</p>
-                    <p>08.00 WITA – Selesai</p>
-                    <p class="small">Kediaman Mempelai Wanita <br> Jl. Poros Desa Semisir, Kotabaru</p>
+                    <i class="bi bi-calendar-check-fill fs-1 text-primary mb-3"></i>
+                    <h3 class="fw-bold mb-3">Akad Nikah</h3>
+                    <p class="fw-bold mb-1">Rabu, 11 Maret 2026</p>
+                    <p>Pukul 08.00 WITA – Selesai</p>
+                    <hr>
+                    <p class="small text-muted">Lokasi: Kediaman Mempelai Wanita <br> Jl. Poros Desa Semisir, Kotabaru</p>
                 </div>
             </div>
             <div class="col-md-5">
                 <div class="glass-card h-100">
-                    <i class="bi bi-calendar-heart fs-1 text-primary mb-3"></i>
-                    <h3>Resepsi</h3>
-                    <p class="fw-bold">Minggu, 05 April 2026</p>
-                    <p>08.00 WITA – Selesai</p>
-                    <p class="small">Kediaman Mempelai Wanita <br> Jl. Poros Desa Semisir, Kotabaru</p>
+                    <i class="bi bi-calendar-heart-fill fs-1 text-primary mb-3"></i>
+                    <h3 class="fw-bold mb-3">Resepsi</h3>
+                    <p class="fw-bold mb-1">Minggu, 05 April 2026</p>
+                    <p>Pukul 08.00 WITA – Selesai</p>
+                    <hr>
+                    <p class="small text-muted">Lokasi: Kediaman Mempelai Wanita <br> Jl. Poros Desa Semisir, Kotabaru</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Peta Lokasi -->
+    <!-- Section 7: Lokasi Maps -->
     <section class="container text-center">
         <h2 class="sacramento display-4 mb-4">Lokasi Acara</h2>
-        <div class="ratio ratio-16x9 mb-4 rounded-4 shadow overflow-hidden">
+        <div class="ratio ratio-16x9 mb-4 rounded-4 shadow-sm overflow-hidden border">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15941.1!2d116.18!3d-3.32!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMTknMTguNSJTIDExNsKwMTEnMTIuNSJF!5e0!3m2!1sid!2sid!4v1700000000000"></iframe>
         </div>
-        <a href="https://maps.app.goo.gl/yb116HDJssxE6qTx6" target="_blank" class="btn btn-outline-primary px-5 shadow-sm">
-            <i class="bi bi-geo-alt me-2"></i>Petunjuk Jalan
+        <a href="https://maps.app.goo.gl/yb116HDJssxE6qTx6" target="_blank" class="btn btn-primary btn-lg rounded-pill px-5">
+            <i class="bi bi-geo-alt-fill me-2"></i>Buka Petunjuk Jalan
         </a>
     </section>
 
-    <!-- RSVP & Guest Book -->
+    <!-- Section 8: RSVP & Buku Tamu -->
     <section id="rsvp" class="container">
         <div class="row justify-content-center">
-            <div class="col-md-7 glass-card">
-                <h3 class="text-center mb-4 text-uppercase fw-bold" style="letter-spacing: 2px;">Konfirmasi Kehadiran</h3>
+            <div class="col-md-8 glass-card">
+                <h3 class="text-center mb-4 fw-bold">Konfirmasi Kehadiran</h3>
                 <form id="rsvp-form">
                     <div class="mb-3">
-                        <label class="form-label">Nama Tamu</label>
-                        <input type="text" class="form-control" id="nama" name="nama" readonly>
+                        <label class="form-label small text-muted">Nama Anda</label>
+                        <input type="text" class="form-control rounded-pill border-primary" id="nama" readonly>
                     </div>
-                    <button type="submit" class="btn btn-success w-100 shadow">Kirim Via WhatsApp</button>
+                    <button type="submit" class="btn btn-success btn-lg w-100 rounded-pill shadow-sm">
+                        <i class="bi bi-whatsapp me-2"></i>Kirim RSVP WhatsApp
+                    </button>
                 </form>
                 
-                <!-- Buku Tamu Disqus -->
+                <!-- Area Buku Tamu (Disqus) -->
                 <div id="disqus_thread" class="mt-5"></div>
             </div>
         </div>
     </section>
 
-    <!-- Audio Player -->
-    <div id="audio-container">
-        <audio id="song" loop><source src="audio/music.mp3" type="audio/mp3"></audio>
-        <div class="audio-icon-wrapper"><i class="bi bi-disc fs-2"></i></div>
-    </div>
+    <!-- Audio Control -->
+    <audio id="song" loop><source src="audio/music.mp3" type="audio/mp3"></audio>
+    <div class="audio-icon-wrapper"><i class="bi bi-disc fs-2"></i></div>
 
     <script>
-        // Fitur 1: Mengambil Nama Tamu dari URL [1-3]
+        // Ambil Nama Tamu dari URL [3-5]
         const urlParams = new URLSearchParams(window.location.search);
         const n = urlParams.get('n') || 'Tamu Undangan';
         const p = urlParams.get('p') || 'Bapak/Ibu/Saudara/i';
         document.querySelector('#nama-tamu').innerText = `${p} ${n}`;
-        document.querySelector('#nama').value = n; // Auto-fill RSVP [4, 5]
+        document.querySelector('#nama').value = n; // Auto-fill RSVP [4, 6]
 
-        // Fitur 2: Countdown Timer [6]
-        const targetDate = new Date("April 5, 2026 08:00:00").getTime();
+        // Countdown Timer [7]
+        const target = new Date("April 5, 2026 08:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
-            const distance = targetDate - now;
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+            const d = target - now;
+            document.getElementById("days").innerText = Math.floor(d / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((d % (1000 * 60)) / 1000);
         }, 1000);
 
-        // Fitur 3: Kontrol Audio & Buka Undangan [7-9]
-        const song = document.getElementById('song');
-        const audioWrapper = document.querySelector('.audio-icon-wrapper');
-        const audioIcon = document.querySelector('.audio-icon-wrapper i');
-        let isPlaying = false;
-
+        // Fungsi Buka Undangan & Jalankan Musik [8-10]
         function enableScroll() {
             document.body.style.overflow = "auto";
             window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-            song.volume = 0.1; // Volume kecil agar tidak kaget [8, 10]
+            const song = document.getElementById('song');
+            song.volume = 0.2; // Volume 20% [11]
             song.play();
-            isPlaying = true;
-            audioWrapper.style.display = 'flex';
-            audioIcon.classList.add('rotating');
+            document.querySelector('.audio-icon-wrapper').style.display = 'flex';
+            document.querySelector('.audio-icon-wrapper i').classList.add('rotating');
         }
 
-        audioWrapper.onclick = function() {
-            if (isPlaying) { 
-                song.pause(); audioIcon.classList.remove('rotating'); 
-            } else { 
-                song.play(); audioIcon.classList.add('rotating'); 
-            }
-            isPlaying = !isPlaying;
-        };
-
-        // Fitur 4: WhatsApp RSVP [5]
+        // WhatsApp RSVP Logic [4, 6]
         document.getElementById('rsvp-form').onsubmit = function(e) {
             e.preventDefault();
             const namaTamu = document.getElementById('nama').value;
-            window.open(`https://wa.me/085787806145?text=Halo Dadan %26 Minah, Saya ${namaTamu} insyaAllah akan hadir di acara pernikahan Anda.`);
+            window.open(`https://wa.me/085787806145?text=Halo Dadan %26 Minah, Saya ${namaTamu} akan hadir di acara pernikahan Anda.`);
         };
     </script>
 </body>
