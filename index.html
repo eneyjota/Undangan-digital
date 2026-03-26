@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<title>Dadan & Minah Wedding</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(#ffffff, #f5f1e8);
+  color: #333;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.gold { color: #c9a85d; }
+
+.cover {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 2s ease;
+}
+
+.cover h1 {
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  background: linear-gradient(45deg,#c9a85d,#e6c97a);
+  color: white;
+  border-radius: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.section {
+  padding: 70px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card {
+  background: white;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 20px;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+a.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: linear-gradient(45deg,#c9a85d,#e6c97a);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+#countdown {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- COVER -->
+<div id="cover" class="cover">
+  <p>Kepada Yth:</p>
+  <h3 id="guest"></h3>
+
+  <h2>Undangan Pernikahan</h2>
+  <h1 class="gold">Dadan & Minah</h1>
+  <p>05 April 2026</p>
+
+  <button onclick="openInvite()">Buka Undangan</button>
+</div>
+
+<!-- CONTENT -->
+<div id="content" style="display:none;">
+
+<div class="section">
+  <p>
+  “Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu...”
+  </p>
+</div>
+
+<div class="section">
+  <h2 class="gold">Ahmad Ramadani & Siti Aminah</h2>
+</div>
+
+<div class="section">
+  <div class="card">
+    <h3 class="gold">Mempelai Pria</h3>
+    <p>Ahmad Ramadani (Dadan)</p>
+  </div>
+
+  <div class="card">
+    <h3 class="gold">Mempelai Wanita</h3>
+    <p>Siti Aminah (Minah)</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="card">
+    <h3 class="gold">Akad Nikah</h3>
+    <p>Rabu, 11 Maret 2026</p>
+    <p>08.00 - Selesai</p>
+  </div>
+
+  <div class="card">
+    <h3 class="gold">Resepsi</h3>
+    <p>Minggu, 05 April 2026</p>
+    <p>08.00 - Selesai</p>
+  </div>
+</div>
+
+<div class="section">
+  <h3 class="gold">Menuju Hari Bahagia</h3>
+  <p id="countdown"></p>
+</div>
+
+<div class="section">
+  <a class="btn" href="https://maps.app.goo.gl/yb116HDJssxE6qTx6?g_st=ic">Lihat Lokasi</a>
+</div>
+
+<div class="section">
+  <a id="waLink" class="btn">Konfirmasi Kehadiran</a>
+</div>
+
+<div class="section">
+  <button onclick="toggleMusic()">Play / Pause Musik</button>
+</div>
+
+</div>
+
+<audio id="music" src="musik.mp3"></audio>
+
+<script>
+// buka
+function openInvite(){
+  document.getElementById("cover").style.display="none";
+  document.getElementById("content").style.display="block";
+}
+
+// animasi scroll
+window.addEventListener("scroll", ()=>{
+  document.querySelectorAll(".section").forEach(sec=>{
+    if(window.scrollY > sec.offsetTop-400){
+      sec.classList.add("show");
+    }
+  });
+});
+
+// countdown
+let target = new Date("April 5, 2026 08:00:00").getTime();
+setInterval(()=>{
+  let now = new Date().getTime();
+  let d = target-now;
+
+  let days = Math.floor(d/(1000606024));
+  let hours = Math.floor((d%(1000606024))/(10006060));
+  let minutes = Math.floor((d%(10006060))/(1000*60));
+
+  document.getElementById("countdown").innerHTML =
+  days+" hari "+hours+" jam "+minutes+" menit";
+},1000);
+
+// nama tamu
+let guest = new URLSearchParams(window.location.search).get('to');
+if(guest) document.getElementById("guest").innerText = guest;
+
+// WA
+let phone="6285787806145";
+let text="Saya akan hadir di pernikahan Dadan & Minah";
+if(guest) text="Saya "+guest+" akan hadir di pernikahan Dadan & Minah";
+
+document.getElementById("waLink").href=
+"https://wa.me/"+phone+"?text="+encodeURIComponent(text);
+
+// musik
+let music=document.getElementById("music");
+function toggleMusic(){
+  music.paused ? music.play() : music.pause();
+}
+</script>
+
+</body>
+</html>
