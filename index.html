@@ -8,10 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #DCC69A; --dark: #1A1A1A; --beige: #F4F1EE; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--beige); color: var(--dark); overflow: hidden; } /* Lock scroll initially */
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--beige); color: var(--dark); overflow: hidden; }
         h1, h2, h3, .serif { font-family: 'Bodoni Moda', serif; }
 
-        /* COVER OVERLAY */
+        /* COVER OVERLAY - BERSIH TANPA BUNGA */
         #cover {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--dark); color: var(--gold);
@@ -20,29 +20,16 @@
             text-align: center; padding: 20px;
         }
 
-        /* ANIMASI BUNGA */
-        .floral-corner {
-            position: absolute; width: 150px; opacity: 0.6; z-index: 1;
-            pointer-events: none; animation: sway 6s ease-in-out infinite;
-        }
-        @keyframes sway {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(5deg) scale(1.05); }
-        }
-
-        /* DAUN BERGUGURAN */
-        .leaf { position: fixed; top: -10px; font-size: 20px; color: var(--gold); pointer-events: none; z-index: 999; animation: fall linear forwards; }
-        @keyframes fall { to { transform: translateY(105vh) rotate(360deg); } }
-
         .timer-box { background: var(--dark); color: var(--gold); padding: 15px; border-radius: 8px; min-width: 80px; }
         .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-in-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
+        /* TOMBOL BUKA UNDANGAN */
         .btn-open { 
-            margin-top: 30px; padding: 12px 30px; border: 1px solid var(--gold); 
+            margin-top: 30px; padding: 15px 40px; border: 1px solid var(--gold); 
             background: transparent; color: var(--gold); cursor: pointer;
-            text-transform: uppercase; letter-spacing: 3px; font-size: 10px;
-            transition: 0.5s;
+            text-transform: uppercase; letter-spacing: 4px; font-size: 11px;
+            font-weight: bold; transition: 0.5s;
         }
         .btn-open:hover { background: var(--gold); color: var(--dark); }
 
@@ -52,13 +39,12 @@
 <body>
 
     <div id="cover">
-        <img src="https://www.transparentpng.com/download/floral/white-flowers-decoration-transparent-11.png" class="floral-corner top-0 left-0" style="transform: scaleX(-1);">
-        <p class="uppercase tracking-[0.5em] text-[10px] mb-8">Wedding Invitation</p>
-        <h1 class="text-6xl italic font-bold mb-4">Dadan & Minah</h1>
+        <p class="uppercase tracking-[0.5em] text-[10px] mb-8 opacity-70">Wedding Invitation</p>
+        <h1 class="text-6xl md:text-8xl italic font-bold mb-4">Dadan & Minah</h1>
         
-        <div class="my-8">
-            <p class="text-[10px] italic mb-2">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-            <h3 id="guestNameCover" class="text-xl serif italic font-bold tracking-widest">[ Nama Tamu ]</h3>
+        <div class="my-10">
+            <p class="text-[10px] italic mb-3 opacity-60">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <h3 id="guestNameCover" class="text-2xl serif italic font-bold tracking-widest">[ Nama Tamu ]</h3>
         </div>
 
         <button class="btn-open" onclick="openInvitation()">Buka Undangan</button>
@@ -70,11 +56,10 @@
     <button id="music-btn" onclick="toggleMusic()">⏸</button>
 
     <main id="main-content">
-        <section class="h-screen flex flex-col justify-center items-center text-center relative px-6 bg-[#1A1A1A] text-[#DCC69A] overflow-hidden">
-            <img src="https://www.transparentpng.com/download/floral/white-flowers-decoration-transparent-11.png" class="floral-corner bottom-0 right-0">
+        <section class="h-screen flex flex-col justify-center items-center text-center relative px-6 bg-[#1A1A1A] text-[#DCC69A]">
             <div class="z-10">
                 <p class="uppercase tracking-[0.6em] text-[10px] mb-8 opacity-80">Official Invitation</p>
-                <h1 class="text-7xl md:text-[10rem] mb-6 italic font-bold leading-none animate-pulse">D & M</h1>
+                <h1 class="text-7xl md:text-[10rem] mb-6 italic font-bold leading-none">D & M</h1>
                 <p class="serif text-2xl tracking-[0.4em] uppercase">Dadan & Minah</p>
                 <div class="h-[1px] w-20 bg-[#DCC69A] mx-auto my-10"></div>
                 <p class="text-sm tracking-widest font-light italic">Minggu, 05 April 2026</p>
@@ -91,16 +76,16 @@
             </div>
         </section>
 
-        <section class="py-32 bg-white px-6 relative overflow-hidden">
+        <section class="py-32 bg-white px-6">
             <div class="max-w-5xl mx-auto space-y-32">
                 <div class="text-center reveal">
-                    <h2 class="text-5xl md:text-7xl serif italic font-bold mb-4">Ahmad Ramadani</h2>
-                    <p class="font-bold text-sm tracking-[0.5em] mb-4 uppercase">( Dadan )</p>
+                    <h2 class="text-5xl md:text-7xl serif italic font-bold mb-4 text-gray-800">Ahmad Ramadani</h2>
+                    <p class="font-bold text-sm tracking-[0.5em] mb-4 uppercase text-gray-500">( Dadan )</p>
                     <p class="text-sm">Putra Kedua dari <br> <b>Bapak Nanang Supiansyah & Ibu Jaminah</b></p>
                 </div>
                 <div class="text-center reveal">
-                    <h2 class="text-5xl md:text-7xl serif italic font-bold mb-4">Siti Aminah</h2>
-                    <p class="font-bold text-sm tracking-[0.5em] mb-4 uppercase">( Minah )</p>
+                    <h2 class="text-5xl md:text-7xl serif italic font-bold mb-4 text-gray-800">Siti Aminah</h2>
+                    <p class="font-bold text-sm tracking-[0.5em] mb-4 uppercase text-gray-500">( Minah )</p>
                     <p class="text-sm">Putri Terakhir dari <br> <b>Bapak Yanto (Alm) & Ibu St. Hapsah</b></p>
                 </div>
             </div>
@@ -118,7 +103,7 @@
                     <h3 class="serif text-4xl mb-6 italic border-b border-[#DCC69A] pb-4">Resepsi</h3>
                     <p class="font-bold">Minggu, 05 April 2026</p>
                     <p class="text-sm mb-4">08.00 WITA – Selesai</p>
-                    <p class="text-[10px] uppercase">Kediaman Mempelai Wanita, Desa Semisir</p>
+                    <p class="text-[10px] uppercase text-gold">Kediaman Mempelai Wanita, Desa Semisir</p>
                 </div>
             </div>
         </section>
@@ -126,8 +111,8 @@
         <section class="py-32 bg-white px-6 text-center reveal">
             <h2 class="serif text-5xl mb-12 italic">Konfirmasi Kehadiran</h2>
             <div class="flex flex-col md:flex-row justify-center gap-4 max-w-xl mx-auto">
-                <a href="https://wa.me/6285787806145?text=Hadir" target="_blank" class="w-full md:w-64 py-5 bg-[#1A1A1A] text-[#DCC69A] text-[10px] font-bold uppercase tracking-[0.2em] border border-[#DCC69A]">Hadir</a>
-                <a href="https://wa.me/6285787806145?text=Tidak Hadir" target="_blank" class="w-full md:w-64 py-5 border border-black text-[10px] font-bold uppercase tracking-[0.2em]">Tidak Hadir</a>
+                <a href="https://wa.me/6285787806145?text=Hadir" target="_blank" class="w-full md:w-64 py-5 bg-[#1A1A1A] text-[#DCC69A] text-[10px] font-bold uppercase tracking-[0.2em]">Saya Akan Hadir</a>
+                <a href="https://wa.me/6285787806145?text=Tidak Hadir" target="_blank" class="w-full md:w-64 py-5 border border-black text-[10px] font-bold uppercase tracking-[0.2em]">Berhalangan Hadir</a>
             </div>
         </section>
     </main>
@@ -135,18 +120,14 @@
     <script>
         // 1. FUNGSI BUKA UNDANGAN
         function openInvitation() {
-            // Geser cover ke atas
             document.getElementById('cover').style.transform = 'translateY(-100%)';
-            // Aktifkan scroll body
             document.body.style.overflow = 'auto';
-            // Play Musik
             const music = document.getElementById("bgMusic");
             music.play();
-            // Tampilkan tombol musik
             document.getElementById('music-btn').style.display = 'flex';
         }
 
-        // 2. NAMA TAMU DARI URL (?to=Nama+Tamu)
+        // 2. NAMA TAMU DARI URL
         const urlParams = new URLSearchParams(window.location.search);
         const guest = urlParams.get('to');
         if (guest) {
@@ -160,20 +141,7 @@
             else { music.pause(); document.getElementById("music-btn").innerText = "🎵"; }
         }
 
-        // 4. ANIMASI DAUN
-        function createLeaf() {
-            const leaf = document.createElement('div');
-            leaf.classList.add('leaf');
-            leaf.innerHTML = '🍃';
-            leaf.style.left = Math.random() * 100 + 'vw';
-            leaf.style.animationDuration = Math.random() * 3 + 2 + 's';
-            leaf.style.opacity = Math.random();
-            document.body.appendChild(leaf);
-            setTimeout(() => { leaf.remove(); }, 5000);
-        }
-        setInterval(createLeaf, 600);
-
-        // 5. COUNTDOWN
+        // 4. COUNTDOWN
         const weddingDate = new Date("April 5, 2026 08:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -184,7 +152,7 @@
             document.getElementById("seconds").innerText = Math.floor((d % 60000) / 1000);
         }, 1000);
 
-        // 6. REVEAL SCROLL
+        // 5. REVEAL SCROLL
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
